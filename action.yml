@@ -1,6 +1,20 @@
-name: 'eonx-com/actions-cloudformation'
-description: 'CloudFormation template build/deployment action'
-runner_type: 'python_script'
-enabled: true
-entry_point: 'action.py'
+name:         'eonx-com/actions-cloudformation'
+description:  'CloudFormation template build/deployment action'
+author:       'Damian Sloane <damian.sloane@eonx.com>'
 
+inputs:
+  template_path:
+    description: 'Path to CloudFormation template files in repository'
+    required: true
+    default: '/cloudformation/templates'
+  environment_path:
+    description: 'Path to environment configuration files in repository'
+    required: true
+    default: '/cloudformation/environments'
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.template_path }}
+    - ${{ inputs.environment_path }}
