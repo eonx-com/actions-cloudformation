@@ -5,10 +5,10 @@ FROM python:3-alpine
 COPY build /tmp/actions-cloudformation
 
 RUN cd /tmp/actions-cloudformation; \
-    python3 -m venv ./venv; \
+    python -m venv ./venv; \
     source ./venv/bin/activate; \
-    pip3 install --upgrade pip3; \
-    pip3 install -r ./requirements.txt;
+    pip install --upgrade pip; \
+    pip install -r ./requirements.txt;
 
 # Configure Docker entrypoint
 
