@@ -1,0 +1,3 @@
+# CloudFormation Github Actions
+
+placeholder
