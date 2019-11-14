@@ -38,6 +38,7 @@ class ActionsEngine:
         for root, directories, files in os.walk(environment_path):
             for file in files:
                 if file.endswith('.yaml'):
+                    print('Processing: {file}').format(file=file)
                     filename = os.path.join(root, file)
 
                     # Read the YAML
@@ -48,6 +49,7 @@ class ActionsEngine:
                     # Extract the configuration blocks from the YAML
                     for key, value in yaml_content.items():
                         if key == 'resources':
+                            print('Processing Resources Block')
                             # Resource block found
                             for resource_id, resource in value.items():
                                 if 'template' not in resource:
@@ -57,6 +59,7 @@ class ActionsEngine:
                                     resource['template'])
                                 yaml_resource_configs[resource_id] = resource
                         elif key == 'config':
+                            print('Processing Config Block')
                             # Stack configuration found
                             yaml_stack_config.update(value)
 
