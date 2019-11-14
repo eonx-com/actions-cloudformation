@@ -15,4 +15,4 @@ echo "Output Filename:  ${OUTPUT_FILENAME}"
 cd /tmp/actions-cloudformation;
 ls -l
 source ./venv/bin/activate;
-python ./build.py "${ENVIRONMENT_NAME}" "${ENVIRONMENT_PATH}" "${TEMPLATE_PATH}" "${OUTPUT_FILENAME}"
+python ./build.py "${ENVIRONMENT_NAME}" "${ENVIRONMENT_PATH}" "${TEMPLATE_PATH}" "${GITHUB_WORKSPACE}/${OUTPUT_FILENAME}"
