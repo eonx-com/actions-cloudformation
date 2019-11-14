@@ -1,0 +1,6 @@
+name: 'eonx-com/actions-cloudformation'
+description: 'CloudFormation template build/deployment action'
+runner_type: 'python_script'
+enabled: true
+entry_point: 'action.py'
+
