@@ -6,11 +6,15 @@ inputs:
   template_path:
     description: 'Path to CloudFormation template files in repository'
     required: true
-    default: '/cloudformation/templates'
+    default: 'aws/templates'
   environment_path:
     description: 'Path to environment configuration files in repository'
     required: true
-    default: '/cloudformation/environments'
+    default: 'aws/environments'
+  output_path:
+    description: 'Path where compiled CloudFormation templates will be output'
+    required: true
+    default: 'aws/environments'
 
 runs:
   using: 'docker'
