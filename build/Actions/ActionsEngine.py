@@ -38,11 +38,8 @@ class ActionsEngine:
 
         # Load all YAML files
         for root, directories, files in os.walk(environment_path):
-            print(root)
-            print(directories)
-            print(files)
             for file in files:
-                if file.endswith('.yaml'):
+                if file.lower().endswith('.yaml') or file.lower().endswith('.yml'):
                     print('Processing: {file}').format(file=file)
                     filename = os.path.join(root, file)
 
