@@ -46,7 +46,7 @@ class ActionsEngine:
                     # Read the YAML
                     file = open(filename, 'rt')
                     yaml_content = yaml.full_load(file)
-                    file.close()
+                    file.close();
 
                     # Extract the configuration blocks from the YAML
                     for key, value in yaml_content.items():
