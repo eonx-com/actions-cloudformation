@@ -3,22 +3,24 @@ description:  'CloudFormation template build/deployment action'
 author:       'Damian Sloane <damian.sloane@eonx.com>'
 
 inputs:
+  environment_name:
+    description: 'The name of the environment for use in templates (e.g. "dev", "uat", "prod")'
+    required: true
+  environment_path:
+    description: 'The base path under which the configuration files are located'
+    required: true
   template_path:
     description: 'Path to CloudFormation template files in repository'
     required: true
-    default: 'aws/templates'
-  environment_path:
-    description: 'Path to environment configuration files in repository'
+  output_filename:
+    description: 'The compiled templates output filename'
     required: true
-    default: 'aws/environments'
-  output_path:
-    description: 'Path where compiled CloudFormation templates will be output'
-    required: true
-    default: 'aws/environments'
 
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.template_path }}
+    - ${{ inputs.environment_name }}
     - ${{ inputs.environment_path }}
+    - ${{ inputs.template_path }}
+    - ${{ inputs.output_filename }}

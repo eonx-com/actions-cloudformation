@@ -6,7 +6,7 @@ RUN apt update; \
         python3-pip \
         python3-venv;
 
+COPY build /tmp/actions-cloudformation
+
 COPY entrypoint.sh /entrypoint.sh
-
 ENTRYPOINT ["/entrypoint.sh"]
-
