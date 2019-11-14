@@ -51,7 +51,7 @@ class ActionsEngine:
                     # Extract the configuration blocks from the YAML
                     for key, value in yaml_content.items():
                         if key == 'resources':
-                            print('Processing Resources Block')
+                            print('Processing Resources Block...')
                             # Resource block found
                             for resource_id, resource in value.items():
                                 if 'template' not in resource:
@@ -61,7 +61,7 @@ class ActionsEngine:
                                     resource['template'])
                                 yaml_resource_configs[resource_id] = resource
                         elif key == 'config':
-                            print('Processing Config Block')
+                            print('Processing Config Block...')
                             # Stack configuration found
                             yaml_stack_config.update(value)
 
