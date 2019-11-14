@@ -48,7 +48,7 @@ class ActionsTemplate:
 
     @staticmethod
     def load_template(filename, indent=0, indent_width=1, indent_first=False, indent_character=' '):
-        filename='{template_path}/{filename}'.format(
+        filename = '{template_path}/{filename}'.format(
             template_path=ActionsTemplate.template_path,
             filename=filename
         )
@@ -59,7 +59,11 @@ class ActionsTemplate:
         template_content = file_object.read()
         file_object.close()
 
-        rendered_content = ActionsTemplate.template_render(template_content, ActionsTemplate.last_data)
+        rendered_content = ActionsTemplate.template_render(
+            template_path=ActionsTemplate.template_path,
+            content=template_content,
+            data=ActionsTemplate.last_data
+        )
 
         if indent > 0:
             lines = rendered_content.split('\n')
