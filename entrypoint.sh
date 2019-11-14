@@ -18,3 +18,5 @@ pip3 install --upgrade pip3
 pip3 install -r ./requirements.txt
 
 ./build.py "${ENVIRONMENT_NAME}" "${ENVIRONMENT_PATH}" "${TEMPLATE_PATH}" "${OUTPUT_FILENAME}"
+
+$(cat ${OUTPUT_FILENAME})1
