@@ -5,11 +5,15 @@ import base64
 
 class ActionsTemplate:
     last_data = None
+    template_path = None
 
     @staticmethod
-    def template_render(content, data) -> str:
+    def template_render(template_path, content, data) -> str:
         """
         Render the supplied Jinja2 content with the supplied data
+
+        :type template_path: str
+        :param template_path: Template root path
 
         :type content: str
         :param content: Jinja2 content
@@ -19,6 +23,8 @@ class ActionsTemplate:
 
         :return: Rendered template
         """
+        ActionsTemplate.template_path = template_path
+
         environment = Environment(loader=FileSystemLoader('./'))
         template = environment.from_string(content)
         template.globals['to_camel'] = ActionsTemplate.to_camel
@@ -42,6 +48,12 @@ class ActionsTemplate:
 
     @staticmethod
     def load_template(filename, indent=0, indent_width=1, indent_first=False, indent_character=' '):
+        filename='{template_path}/{filename}'.format(
+            template_path=ActionsTemplate.template_path,
+            filename=filename
+        )
+        print('Loading Template: {filename}'.format(filename=filename))
+
         # Read the file and return its content
         file_object = open(filename, 'rt')
         template_content = file_object.read()

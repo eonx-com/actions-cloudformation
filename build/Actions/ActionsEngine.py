@@ -40,7 +40,7 @@ class ActionsEngine:
         for root, directories, files in os.walk(environment_path):
             for file in files:
                 if file.lower().endswith('.yaml') or file.lower().endswith('.yml'):
-                    print('Processing: {file}'.format(file=file))
+                    print('Found: {file}'.format(file=file))
                     filename = os.path.join(root, file)
 
                     # Read the YAML
@@ -142,6 +142,7 @@ class ActionsEngine:
             })
 
             cloudformation_resources.append(ActionsTemplate.template_render(
+                template_path=ActionsEngine.template_path,
                 content=resource_templates[resource_id],
                 data=data
             ))
