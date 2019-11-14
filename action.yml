@@ -3,6 +3,9 @@ description:  'CloudFormation template build/deployment action'
 author:       'Damian Sloane <damian.sloane@eonx.com>'
 
 inputs:
+  action:
+    description: 'CloudFormation action to perform (e.g. "template_build")'
+    required: true
   environment_name:
     description: 'The name of the environment for use in templates (e.g. "dev", "uat", "prod")'
     required: true
@@ -20,6 +23,7 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
+    - ${{ inputs.action }}
     - ${{ inputs.environment_name }}
     - ${{ inputs.environment_path }}
     - ${{ inputs.template_path }}
