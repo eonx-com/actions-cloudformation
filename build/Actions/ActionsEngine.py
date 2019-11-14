@@ -34,6 +34,8 @@ class ActionsEngine:
         yaml_resource_configs = {}
         yaml_resource_templates = {}
 
+        print('Searching: {environment_path}').format(environment_path=environment_path)
+
         # Load all YAML files
         for root, directories, files in os.walk(environment_path):
             for file in files:
