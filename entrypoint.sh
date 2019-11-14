@@ -12,6 +12,8 @@ echo "Environment Path: ${ENVIRONMENT_PATH}"
 echo "Template Path:    ${TEMPLATE_PATH}"
 echo "Output Filename:  ${OUTPUT_FILENAME}"
 
+ls -l
+
 ./build.py "${ENVIRONMENT_NAME}" "${ENVIRONMENT_PATH}" "${TEMPLATE_PATH}" "${OUTPUT_FILENAME}"
 
 $(cat ${OUTPUT_FILENAME})
