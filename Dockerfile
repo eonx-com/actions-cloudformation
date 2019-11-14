@@ -1,12 +1,4 @@
-FROM ubuntu:18.04
-
-# Install OS dependencies
-
-RUN apt update; \
-    apt install -y \
-        python3 \
-        python3-pip \
-        python3-venv;
+FROM python:3-alpine
 
 # Setup the Python script that will compile the CloudFromation output from Jinja2 templates
 

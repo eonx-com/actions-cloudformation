@@ -14,4 +14,4 @@ echo "Output Filename:  ${OUTPUT_FILENAME}"
 
 ./build.py "${ENVIRONMENT_NAME}" "${ENVIRONMENT_PATH}" "${TEMPLATE_PATH}" "${OUTPUT_FILENAME}"
 
-$(cat ${OUTPUT_FILENAME})1
+$(cat ${OUTPUT_FILENAME})
