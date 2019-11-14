@@ -12,8 +12,7 @@ echo "Environment Path: ${ENVIRONMENT_PATH}"
 echo "Template Path:    ${TEMPLATE_PATH}"
 echo "Output Filename:  ${OUTPUT_FILENAME}"
 
+cd /tmp/actions-cloudformation;
 ls -l
-
-./build.py "${ENVIRONMENT_NAME}" "${ENVIRONMENT_PATH}" "${TEMPLATE_PATH}" "${OUTPUT_FILENAME}"
-
-$(cat ${OUTPUT_FILENAME})
+source ./venv/bin/activate;
+python ./build.py "${ENVIRONMENT_NAME}" "${ENVIRONMENT_PATH}" "${TEMPLATE_PATH}" "${OUTPUT_FILENAME}"
